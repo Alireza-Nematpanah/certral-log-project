@@ -1,0 +1,22 @@
+
+services:
+  flask-app:
+    build: ./apps/flask
+    container_name: flask-app
+    ports:
+      - "5000:5000"
+    restart: unless-stopped
+
+  node-app:
+    build: ./apps/node
+    container_name: node-app
+    ports:
+      - "3001:3000"
+    restart: unless-stopped
+
+  nginx:
+    build: ./apps/nginx
+    container_name: nginx
+    ports:
+      - "8888:80"
+    restart: unless-stopped
